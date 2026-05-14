@@ -55,7 +55,7 @@ app.listen(4002, async () => {
     console.log('Query service is running on port 4002');
     
     // Fetch all events from the event bus to reconstruct the state
-    const resp = await axios.get('http://localhost:4005/events');
+    const resp = await axios.get('http://event-bus:4005/events');
     for(let event of resp.data) {
         console.log('Processing event:', event.type);
         handleEvent(event.type, event.data);
